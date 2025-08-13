@@ -1,0 +1,419 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greencore – Strategic AI Deployment Plan (2025)</title>
+  <meta name="description" content="Investment-grade proposal outlining AI use cases for Greencore mapped to P&L lines, departments, and 3–5 year ROI.">
+  <style>
+    :root{
+      --bg:#0b0f0c;
+      --card:#111612;
+      --muted:#93a29a;
+      --text:#e9f2ed;
+      --accent:#30b07a;
+      --accent-2:#1f7d58;
+      --border:#233127;
+      --chip:#15221a;
+      --warning:#f7b500;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, #163024 0%, transparent 60%) , var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header.hero{
+      position:relative;
+      padding:56px 0 28px;
+    }
+    header .title{
+      font-size: clamp(28px, 5vw, 46px);
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    header .subtitle{
+      color:var(--muted);
+      margin-top:8px;
+      font-size: clamp(16px, 2.5vw, 18px);
+    }
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      background:linear-gradient(180deg,var(--chip),#0f1914);
+      border:1px solid var(--border);
+      color:#bfe7d3;
+      padding:6px 12px;border-radius:999px;
+      font-weight:600;font-size:12px; text-transform:uppercase; letter-spacing:.6px;
+    }
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:12px;border:1px solid var(--border);
+      background:linear-gradient(180deg,#1a2a21,#0f1713);
+      color:var(--text);font-weight:700
+    }
+    .btn:hover{border-color:#335243;transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(180deg,var(--accent),#2a9e71);color:#04140e;border-color:#73e5b9}
+    .btn.primary:hover{filter:saturate(1.1)}
+    .note{color:var(--muted);font-size:14px;margin-top:6px}
+    nav.toc{
+      position:sticky;top:0;background:rgba(9,14,11,.6);backdrop-filter:saturate(180%) blur(6px);
+      border-bottom:1px solid var(--border);
+      z-index:50
+    }
+    nav.toc .inner{max-width:1100px;margin:0 auto;display:flex;gap:16px;flex-wrap:wrap;padding:10px 24px}
+    nav.toc a{padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--border);color:#cfe8dc;font-size:13px}
+    nav.toc a:hover{background:#193123}
+    section{margin:36px 0 24px}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid{grid-template-columns:1.1fr .9fr}}
+    .card{
+      background:linear-gradient(180deg,var(--card),#0c130f);
+      border:1px solid var(--border);
+      border-radius:18px;padding:18px
+    }
+    .card h3{margin:0 0 8px;font-size:20px}
+    .pill{display:inline-block;padding:4px 10px;border:1px solid var(--border);background:var(--chip);border-radius:999px;font-size:12px;color:#cde5da;margin-right:6px}
+    ul{margin:8px 0 0 20px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+    th{background:#142019}
+    .kpi{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px
+    }
+    @media(min-width:800px){.kpi{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .kpi .metric{background:var(--chip);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+    .metric b{font-size:18px}
+    footer{
+      margin:40px 0 60px;
+      border-top:1px solid var(--border);
+      padding-top:20px;
+      color:var(--muted);
+      font-size:14px
+    }
+    .warning{color:var(--warning);font-weight:700}
+    .sidebar{
+      display:grid;gap:12px;
+    }
+    .context{font-size:14px;color:#cfe1d7}
+    .success{color:#5fe4ac;font-weight:700}
+    .print-tip{font-size:12px;color:#b6cdc3;margin-top:4px}
+    .top{position:fixed;right:16px;bottom:16px;background:var(--accent);color:#052016;border:none;border-radius:999px;padding:12px 14px;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.35);cursor:pointer}
+    .muted{color:var(--muted)}
+    .hr{height:1px;background:linear-gradient(90deg,transparent,#1f2c24,transparent);margin:22px 0}
+  </style>
+</head>
+<body>
+  <nav class="toc" aria-label="Sections">
+    <div class="inner">
+      <a href="#overview">Overview</a>
+      <a href="#mfg">Manufacturing</a>
+      <a href="#supply">Supply Chain</a>
+      <a href="#rnd">Product Development</a>
+      <a href="#sales">Sales & Pricing</a>
+      <a href="#sustain">Sustainability</a>
+      <a href="#backoffice">Back-Office</a>
+      <a href="#assumptions">Assumptions</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <span class="badge">Investment-Grade AI Proposal</span>
+      <h1 class="title">Greencore – Strategic AI Deployment Plan</h1>
+      <p class="subtitle">Six high-impact AI programmes mapped to departments, P&amp;L lines, and 3–5 year ROI, aligned to Horizon 2 (Rebuild) and the Better Future Plan.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#mfg">View Use Cases</a>
+        <button class="btn" onclick="window.print()">Export to PDF</button>
+      </div>
+      <p class="note print-tip">Tip: Use the “Export to PDF” button to share a board-ready copy. This page is responsive and print-friendly.</p>
+    </header>
+
+    <section id="overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">Executive Overview</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Client Context</h3>
+          <p class="context">Greencore is a leading UK manufacturer of convenience foods with <b>16 manufacturing sites</b>, <b>645+ direct-to-store vehicles</b>, and <b>~1,600 SKUs</b>. FY23 revenue was <b>£1,913.7m</b> with an OEE and operational reset under way as part of Horizon 2 (Rebuild).</p>
+          <div class="kpi">
+            <div class="metric"><div class="muted">Annualised Savings (p.a.)</div><b>£14M–£20M</b></div>
+            <div class="metric"><div class="muted">Incremental Revenue (p.a.)</div><b>£14M–£22M</b></div>
+            <div class="metric"><div class="muted">Payback</div><b>3–9 months</b></div>
+            <div class="metric"><div class="muted">3–5 Year ROI</div><b class="success">170%–550%</b></div>
+          </div>
+          <div class="hr"></div>
+          <p class="muted">This proposal synthesises Greencore’s FY23 priorities (Operational Excellence reset; systems upgrades; Better Future Plan focus on waste, energy, healthy diets, and communities) and maps AI initiatives to <b>COGS</b>, <b>Distribution/Fleet</b>, and <b>SG&amp;A</b>.</p>
+        </div>
+        <aside class="sidebar">
+          <div class="card">
+            <h3>Key Challenges</h3>
+            <ul>
+              <li>Variable OEE and yield loss across sites; seasonal demand spikes</li>
+              <li>Fuel &amp; route inefficiency across 10,400+ daily deliveries</li>
+              <li>High innovation tempo with health &amp; sustainability constraints</li>
+              <li>Margin pressure; need for pricing &amp; promo optimisation with retailers</li>
+              <li>Energy-intensive chilled footprint; need to halve food waste</li>
+              <li>Heavy document &amp; contract load across procurement, QA, and legal</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Success Factors</h3>
+            <ul>
+              <li>ERP/MES/TMS/WMS integrations with clean master data</li>
+              <li>Operator &amp; planner upskilling; clear KPI governance</li>
+              <li>Privacy-by-design and robust MLOps (monitoring &amp; drift)</li>
+              <li>Phased rollout with site champions and control towers</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 2.1 Manufacturing -->
+    <section id="mfg" aria-labelledby="mfg-h">
+      <h2 id="mfg-h">2.1 Manufacturing &amp; Operational Efficiency – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li><b>+15–20% OEE</b> within 18 months on targeted lines</li>
+            <li><b>Yield loss -1.5–2pp</b> (~£3M p.a.)</li>
+            <li><b>Downtime -30–40%</b> (~£2M–£3M productivity gains)</li>
+            <li><b>Labour optimisation</b>: redeploy/reduce 50–70 FTEs</li>
+            <li><b>£6M–£8M p.a. savings</b>; payback < 2 years; ROI &gt; 300%</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>Predictive maintenance (vibration/thermal + model-based)</li>
+            <li>Computer vision QC for sandwiches, salads, ready meals</li>
+            <li>AI scheduling to balance SKU demand vs labour &amp; machines</li>
+            <li>Unified AI-OEE dashboard integrated with MES/ERP</li>
+            <li>Operator enablement &amp; change management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Operations</td><td>Direct labour (COGS)</td><td>£3M–£4M</td></tr>
+            <tr><td>Production</td><td>Factory overhead (COGS)</td><td>£1.5M–£2M</td></tr>
+            <tr><td>Quality</td><td>Waste &amp; rework (COGS)</td><td>£1.5M–£2M</td></tr>
+            <tr><td>Engineering</td><td>Maintenance (COGS)</td><td>£0.5M–£1M</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: Implementation cost ~£2.5M → £6M–£8M p.a. → Payback 4–5 months after full deployment → 300–400% ROI</p>
+      </div>
+    </section>
+
+    <!-- 2.2 Supply Chain -->
+    <section id="supply" aria-labelledby="supply-h">
+      <h2 id="supply-h">2.2 Supply Chain &amp; Logistics Optimisation – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li><b>Mileage -8–12%</b> = £1.5M–£2M</li>
+            <li><b>Fuel -~10%</b> = £0.5M–£1M</li>
+            <li><b>Inventory holding -15%</b> = £1.5M–£2M</li>
+            <li>CO₂ reduction <b>~1,800–2,200 t/year</b></li>
+            <li>Payback in 18–24 months</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>Dynamic routing with real-time traffic/weather</li>
+            <li>SKU-store demand forecasting with causal features</li>
+            <li>AI inventory optimisation (service vs working capital)</li>
+            <li>Integrations: TMS/WMS/ERP; store-level visibility</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Logistics</td><td>Fuel &amp; fleet (COGS)</td><td>£2M–£3M</td></tr>
+            <tr><td>Supply Chain</td><td>Inventory holding cost</td><td>£1.5M–£2M</td></tr>
+            <tr><td>Sustainability</td><td>CO₂ cost avoidance</td><td>Qualitative benefit</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: ~£1.8M cost → £4M–£5M p.a. → Payback ~6 months → 250–280% ROI</p>
+      </div>
+    </section>
+
+    <!-- 2.3 Product Dev -->
+    <section id="rnd" aria-labelledby="rnd-h">
+      <h2 id="rnd-h">2.3 Product Development &amp; Innovation – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li>R&amp;D cycle time <b>-30–40%</b></li>
+            <li>New launch hit rate <b>+10–15%</b></li>
+            <li><b>6–8</b> additional profitable SKUs/year</li>
+            <li>Incremental revenue <b>£8M–£12M p.a.</b></li>
+            <li>Gross margin uplift <b>£2.5M–£3.5M p.a.</b></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>AI recipe formulation (taste, cost, nutrition, sustainability)</li>
+            <li>Trend mining from POS, loyalty, and social signals</li>
+            <li>AI sensory simulation before pilot runs</li>
+            <li>Integrations: LIMS/PLM for spec and compliance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>R&amp;D</td><td>Testing costs (SG&amp;A)</td><td>£0.5M–£1M</td></tr>
+            <tr><td>Sales</td><td>Incremental gross profit</td><td>£2.5M–£3.5M</td></tr>
+            <tr><td>Marketing</td><td>NPD success / revenue</td><td>£5M–£7M revenue benefit</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: ~£2M cost → £8M–£12M p.a. → Payback ~4 months → 300–500% ROI</p>
+      </div>
+    </section>
+
+    <!-- 2.4 Sales -->
+    <section id="sales" aria-labelledby="sales-h">
+      <h2 id="sales-h">2.4 Sales, Retailer Relations &amp; Pricing – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li><b>2–4% price uplift</b> without volume loss</li>
+            <li><b>+8–10%</b> promotion ROI</li>
+            <li><b>£6M–£10M</b> incremental revenue p.a.</li>
+            <li>Strengthened retailer partnerships</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>Elasticity modelling per category &amp; retailer</li>
+            <li>Promo forecasting incl. cannibalisation &amp; halo</li>
+            <li>Automated retailer reporting &amp; insights</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Sales</td><td>Gross profit uplift</td><td>£4M–£6M</td></tr>
+            <tr><td>Marketing</td><td>Promo ROI</td><td>£2M–£4M</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: ~£1.5M cost → £6M–£10M p.a. → Payback ~3 months → 300–550% ROI</p>
+      </div>
+    </section>
+
+    <!-- 2.5 Sustainability -->
+    <section id="sustain" aria-labelledby="sustain-h">
+      <h2 id="sustain-h">2.5 Sustainability &amp; Waste Reduction – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li>Food waste <b>-15–20%</b> (~£1M–£1.5M)</li>
+            <li>Energy usage <b>-8–12%</b> (~£1M–£1.5M)</li>
+            <li>Accelerates Net Zero 2040 &amp; waste halving by 2030</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>Vision + IoT for waste detection and root cause</li>
+            <li>Shelf-life prediction for chilled products</li>
+            <li>AI energy optimisation for refrigeration &amp; plant utilities</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Operations</td><td>COGS – waste reduction</td><td>£1M–£1.5M</td></tr>
+            <tr><td>Facilities</td><td>Energy savings (COGS)</td><td>£1M–£1.5M</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: ~£1.2M cost → £2M–£3M p.a. → Payback ~6 months → 170–250% ROI</p>
+      </div>
+    </section>
+
+    <!-- 2.6 Back office -->
+    <section id="backoffice" aria-labelledby="backoffice-h">
+      <h2 id="backoffice-h">2.6 Back‑Office &amp; Knowledge Automation – AI Deployment</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Main Results</h3>
+          <ul>
+            <li>Contract/legal review time <b>-20–30%</b></li>
+            <li>Supplier &amp; internal query resolution <b>+50–60%</b> faster</li>
+            <li><b>£1M–£2M</b> SG&amp;A savings</li>
+            <li>Faster, safer decisions via AI search</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Approach &amp; Key Success Factors</h3>
+          <ul>
+            <li>AI contract review &amp; compliance monitoring</li>
+            <li>Enterprise document search across specs, contracts, QA</li>
+            <li>Conversational assistants for suppliers &amp; staff</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>P&amp;L &amp; Department Impact</h3>
+        <table>
+          <thead><tr><th>Department</th><th>P&amp;L Line</th><th>Estimated Annual Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Procurement</td><td>SG&amp;A admin reduction</td><td>£0.5M–£1M</td></tr>
+            <tr><td>Legal / QA</td><td>SG&amp;A cost reduction</td><td>£0.5M–£1M</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">ROI: ~£0.8M cost → £1M–£2M p.a. → Payback 6–9 months → 125–250% ROI</p>
+      </div>
+    </section>
+
+    <section id="assumptions" aria-labelledby="assumptions-h">
+      <h2 id="assumptions-h">Financial Assumptions (for ROI modelling)</h2>
+      <div class="card">
+        <ul>
+          <li>Benefits represent steady-state post scale-up; pilots show partial-year impact.</li>
+          <li>Implementation cost ranges include software, sensors/edge devices where relevant, integration, change, and initial MLOps.</li>
+          <li>Department allocations align with Greencore’s P&amp;L structure: COGS (labour, overhead, waste, energy, fleet), Distribution, and SG&amp;A.</li>
+          <li>All figures are directional and should be validated per site/category during discovery.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Prepared for Greencore (2025). For questions or to begin discovery workshops, reply to this email with your preferred dates. <span class="muted">This document is confidential.</span>
+    </footer>
+  </div>
+
+  <a href="#top" class="top" aria-label="Back to top">↑</a>
+</body>
+</html>
